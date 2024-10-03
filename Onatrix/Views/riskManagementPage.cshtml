@@ -1,0 +1,150 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+    var asideImage = Model?.Value<IPublishedContent>("asideImage")?.Url() ?? "";
+    var asideBackgroundImage = Model?.Value<IPublishedContent>("asideContactBackgroundImage")?.Url() ?? "";
+    var article1Image = Model?.Value<IPublishedContent>("article1Image")?.Url() ?? "";
+    var article2Image = Model?.Value<IPublishedContent>("article2Image")?.Url() ?? "";
+
+    var contactImage = Model?.Value<IPublishedContent>("contactImage")?.Url() ?? "";
+    var vectorImage = Model?.Value<IPublishedContent>("contactVectorImage")?.Url() ?? "";
+    var backgroundImage = Model?.Value<IPublishedContent>("contactBackgroundImage")?.Url() ?? "";
+
+
+}
+
+
+
+<section id="page-title">
+	<div class="container">
+		<div class="content">
+			<h2>@Model?.Value("pageHeroTitel")</h2>
+			<ul class="breadcrumbs">
+				<li class="breadcrumb-link"><a href="@Model?.Value("pageHeroBreadcrumbURL1")">@Model?.Value("pageHeroBreadcrumbText1")</a></li>
+				<li class="fa-solid fa-chevron-right"></li>
+				<li class="breadcrumb-link"><a href="@Model?.Value("pageHeroBreadcrumbURL2")">@Model?.Value("pageHeroBreadcrumbText2")</a></li>
+				<li class="fa-solid fa-chevron-right"></li>
+				<li class="breadcrumb-link"><a href="#"></a>@Model?.Value("pageHeroBreadcrumbCurrentText")</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+
+<section class="risk-management">
+	<div class="container">
+		<div class="sideinformation">
+			<div class="about-us">
+				<h4>@Model?.Value("asideHeadline")</h4>
+				<img src="@asideImage" alt="Meeting in group">
+				<p>@Model?.Value("asideText")</p>
+			</div>
+			<div class="infobox">
+				<h4>@Model?.Value("asideContactTitle")</h4>
+				<p>@Model?.Value("asideContactText")</p>
+				<form action="">
+					<label for="email"></label>
+					<div class="input-container">
+						<input type="E-mail-address"  placeholder="E-mail adress">
+						<i class="fa-regular fa-envelope"></i>
+					</div>
+				</form>
+				<img class="mailsvg" src="@asideBackgroundImage" alt="">
+			</div>
+		</div>
+
+		<div class="content">
+			<img src="@article1Image" alt="cheering people">
+			<div class="text-section">
+				<h3>@Model?.Value("article1Title")</h3>
+					<p class="bulleted">@Model?.Value("article1BulletedText1")</p>
+					<p class="bulleted">@Model?.Value("article1BulletedText2")</p>
+					<p class="bulleted">@Model?.Value("articleBulletedText3")</p>
+			</div>
+			<div class="text-section">
+				<h3>@Model?.Value("article2Title")</h3>
+				<p>@Model?.Value("article2Text1")</p>
+				<p class="bulleted">@Model?.Value("article2BulletedText1")</p>
+				<p class="bulleted">@Model?.Value("article2BulletedText2")</p>
+				<p class="bulleted">@Model?.Value("article2BulletedText3")</p>
+				<p>@Model?.Value("article2Text2")</p>
+				<img src="@article2Image" alt="ongoing meeting">
+			</div>
+
+			<div class="text-section">
+				<h3>@Model?.Value("article3Title")</h3>
+				<p>@Model?.Value("article3Text")</p>
+				<p class="bulleted">@Model?.Value("article3BulletedText1")</p>
+				<p class="bulleted">@Model?.Value("article3BulletedText2")</p>
+				<p class="bulleted">@Model?.Value("article3BulletedText3")</p>
+				<p class="bulleted">@Model?.Value("article3BulletedText4")</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="question-form">
+    <div class="container">
+        <form action="">
+            <h3>Have a question ?</h3>
+
+            <div class="flex">
+                <div>
+                    <label for="name"></label>
+                    <input type="text" name="name" id="name" placeholder="Name" tabindex="1">
+                </div>
+
+                <div>
+                    <label for="email"></label>
+                    <input type="text" name="email" id="name" placeholder="Email" tabindex="2">
+                </div>
+            </div>
+
+            <div class="question-input">
+                <label for="question"></label>
+                <textarea type="text" name="question" id="question" rows="6" cols="30" placeholder="Question" tabindex="3"></textarea>
+            </div>
+            <button class="btn-theme mt-3">Submit</button>
+        </form>
+    </div>
+</section>
+
+
+<section id="contact-info">
+    <div class="container">
+        <div class="parent">
+            <img class="child-1" src="@contactImage" alt="">
+            <img class="child-2" src="@backgroundImage" alt="">
+            <img class="child-3" src="@vectorImage" alt="">
+        </div>
+        <div class="content">
+            <h2>@Model?.Value("contactHeadline")</h2>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>@Model?.Value("contactInformation1Title")</p>
+                </div>
+                <p>@Model?.Value("contactInformation1Text")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>@Model?.Value("contactInformation2Title")</p>
+                </div>
+                <p>@Model?.Value("contactInformation2Text")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>@Model?.Value("contactInformation3Title")</p>
+                </div>
+                <p>@Model?.Value("contactInformation3Text")</p>
+            </div>
+        </div>
+    </div>
+</section>

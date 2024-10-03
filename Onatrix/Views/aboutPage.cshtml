@@ -1,0 +1,174 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+    var ceoPicture = Model?.Value<IPublishedContent>("ceoImage")?.Url() ?? "";
+    var employeeImage = Model?.Value<IPublishedContent>("reviewImage")?.Url() ?? "";
+
+    var cardOneImage = Model?.Value<IPublishedContent>("expertCardOneImage")?.Url() ?? "";
+    var cardTwoImage = Model?.Value<IPublishedContent>("expertCardTwoImage")?.Url() ?? "";
+    var cardThreeImage = Model?.Value<IPublishedContent>("expertCardThreeImage")?.Url() ?? "";
+    var cardFourImage = Model?.Value<IPublishedContent>("expertCardFourImage")?.Url() ?? "";
+    var cardFiveImage = Model?.Value<IPublishedContent>("expertCardFiveImage")?.Url() ?? "";
+    var cardSixImage = Model?.Value<IPublishedContent>("expertCardSixImage")?.Url() ?? "";
+    var cardSevenImage = Model?.Value<IPublishedContent>("expertCardSevenImage")?.Url() ?? "";
+
+    var contactImage = Model?.Value<IPublishedContent>("contactImage")?.Url() ?? "";
+    var vectorImage = Model?.Value<IPublishedContent>("contactVectorImage")?.Url() ?? "";
+    var backgroundImage = Model?.Value<IPublishedContent>("contactBackgroundImage")?.Url() ?? "";
+  
+}
+
+
+<section id="page-title">
+    <div class="container">
+        <div class="content">
+            <h2>@Model?.Value("pageHeroTitle")</h2>
+            <ul class="breadcrumbs">
+                <li class="breadcrumb-link"><a href="@Model?.Value("pageHeroBreadcrumbUrl")">@Model?.Value("pageHeroBreadcrumbText")</a></li>
+                <li class="fa-solid fa-chevron-right"></li>
+                <li class="breadcrumb-link"><a href="#"></a>@Model?.Value("pageHeroBreadcrumbCurrentPage")</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section id="ceo-info">
+    <div class="container">
+        <div class="image-content">
+            <img src="@ceoPicture" alt="@Model?.Value("ceoImageTitle")">
+            <p>@Model?.Value("ceoImageTitle")</p>
+        </div>
+        <div class="info-content">
+            <h6>@Model?.Value("ceoQuote")</h6>
+            <p>@Model?.Value("ceoText")</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="reviews">
+    <div class="background-half"></div>
+    <div class="container">
+        <div class="section-title">
+            <p class="sub-color">@Model?.Value("reviewTitle")</p>
+            <h2>@Model?.Value("reviewHeadline")</h2>
+        </div>
+        <p class="italic info-content">@Model?.Value("reviewText")</p>
+        <div class="review-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="dark-color">@Model?.Value("reviewPersonName")</p>
+        <p class="italic dark-color">@Model?.Value("reviewCompany")</p>
+    </div>
+    <div class="background-half">
+        <img src="@employeeImage" alt="@Model?.Value("reviewPersonName")">
+    </div>
+</section>
+
+
+<section id="experts">
+    <div class="container">
+        <div class="section-title">
+            <p class="sub-color">@Model?.Value("expertTitle")</p>
+            <h2>@Model?.Value("expertHeadline")</h2>
+        </div>
+        <div class="content">
+            <div class="flex">
+                <div class="expert-card">
+                    <img src="@cardOneImage" alt="@Model?.Value("expertCardOneTitle")">
+                    <div class="expert-info">
+                        <h5>@Model?.Value("expertCardOneTitle")</h5>
+                        <p>@Model?.Value("expertCardOneText")</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <img src="@cardTwoImage" alt="@Model?.Value("expertCardTwoTitle")">
+                    <div class="expert-info">
+                        <h5>@Model?.Value("expertCardTwoTitle")</h5>
+                        <p>@Model?.Value("expertCardTwoText")</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <img src="@cardThreeImage" alt="@Model?.Value("expertCardThreeTitle")">
+                    <div class="expert-info">
+                        <h5>@Model?.Value("expertCardThreeTitle")</h5>
+                        <p>@Model?.Value("expertCardThreeText")</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="expert-card">
+                    <img src="@cardFourImage" alt="@Model?.Value("expertCardFourTitle")">
+                    <div class="expert-info">
+                        <h5>@Model?.Value("expertCardFourTitle")</h5>
+                        <p>@Model?.Value("expertCardFourText")</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <img src="@cardFiveImage" alt="@Model?.Value("expertCardFiveTitle")">
+                    <div class="expert-info">
+                        <h5>@Model?.Value("expertCardFiveTitle")</h5>
+                        <p>@Model?.Value("expertCardFiveText")</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <img src="@cardSixImage" alt="@Model?.Value("expertCardSixTitle")">
+                    <div class="expert-info">
+                        <h5>@Model?.Value("expertCardSixTitle")</h5>
+                        <p>@Model?.Value("expertCardSixText")</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <img src="@cardSevenImage" alt="@Model?.Value("expertCardSevenTitle")">
+                    <div class="expert-info">
+                        <h5>@Model?.Value("expertCardSevenTitle")</h5>
+                        <p>@Model?.Value("expertCardSevenText")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="contact-info">
+    <div class="container">
+        <div class="parent">
+            <img class="child-1" src="@contactImage" alt="">
+            <img class="child-2" src="@backgroundImage" alt="">
+            <img class="child-3" src="@vectorImage" alt="">
+        </div>
+        <div class="content">
+            <h2>@Model?.Value("contactHeadline")</h2>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>@Model?.Value("contactTitelOne")</p>
+                </div>
+                <p>@Model?.Value("contactTextOne")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>@Model?.Value("contactTitelTwo")</p>
+                </div>
+                <p>@Model?.Value("contactTextTwo")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>@Model?.Value("contactTitelThree")</p>
+                </div>
+                <p>@Model?.Value("contactTextThree")</p>
+            </div>
+        </div>
+    </div>
+</section>

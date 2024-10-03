@@ -1,0 +1,170 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+    var cardImage1 = Model?.Value<IPublishedContent>("project1Image")?.Url() ?? "";
+    var cardImage2 = Model?.Value<IPublishedContent>("project2Image")?.Url() ?? "";
+    var cardImage3 = Model?.Value<IPublishedContent>("project3Image")?.Url() ?? "";
+    var cardImage4 = Model?.Value<IPublishedContent>("project4Image")?.Url() ?? "";
+    var asideImage = Model?.Value<IPublishedContent>("asideContactBackgroundImage")?.Url() ?? "";
+
+    var contactImage = Model?.Value<IPublishedContent>("contactImage")?.Url() ?? "";
+    var vectorImage = Model?.Value<IPublishedContent>("contactVectorImage")?.Url() ?? "";
+    var backgroundImage = Model?.Value<IPublishedContent>("contactBackgroundImage")?.Url() ?? "";
+
+     
+}
+
+
+
+ <section id="page-title">
+    <div class="container">
+        <div class="content">
+            <h2>@Model?.Value("pageHeroTitle")</h2>
+            <ul class="breadcrumbs">
+                <li class="breadcrumb-link"><a href="@Model?.Value("pageHeroBreadcrumbUrl")">@Model?.Value("pageHeroBreadcrumbText")</a></li>
+                <li class="fa-solid fa-chevron-right"></li>
+                <li class="breadcrumb-link"><a href="#"></a>@Model.Value("pageHeroBreadcrumbCurrentText")</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section class="our-projects">
+    <div class="container">
+        
+        <div class="projects">
+            <a class="project" href="@Model?.Value("project1LinkUrl")">
+                <img src="@cardImage1" alt="People in a meeting">
+                <div class="project-content">
+                    <div>
+                        <h4>@Model?.Value("project1Title")</h4>
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <span>@Model?.Value("project1Date")</span>
+                    </div>
+                    <p class="project-information">@Model?.Value("project1Text")</p>
+                    <div class="readmore">@Model?.Value("project1LinkText")<i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+
+            <a class="project" href="@Model?.Value("project2LinkUrl")">
+                <img src="@cardImage2" alt="Increasing stastic">
+                <div class="project-content">
+                    <div>
+                        <h4>@Model?.Value("project2Title")</h4>
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <span>@Model?.Value("project2Date")</span>
+                    </div>
+                    <p class="project-information">@Model?.Value("project2Text")</p>
+                    <div class="readmore">@Model?.Value("project2LinkText")<i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <a class="project" href="@Model?.Value("project3LinkUrl")">
+                <img src="@cardImage3" alt="Image of a employee sharing advice to a colleague">
+                <div class="project-content">
+                    <div>
+                        <h4>@Model?.Value("project3Title")</h4>
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <span>@Model?.Value("project3Date")</span>
+                    </div>
+                    <p class="project-information">@Model?.Value("project3Text")</p>
+                    <div class="readmore">@Model?.Value("project3LinkText")<i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <a class="project" href="@Model?.Value("project4LinkUrl")">
+                <img src="@cardImage4" alt="Four people in a meeting regarding a budget planning">
+                <div class="project-content">
+                    <div>
+                        <h4>@Model?.Value("project4Title")</h4>
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <span>@Model?.Value("project4Date")</span>
+                    </div>
+                    <p class="project-information">@Model?.Value("project4Text")</p>
+                    <div class="readmore">@Model?.Value("project4LinkText")<i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="tags">
+            <h4>@Model?.Value("asideTitle")</h4>
+            <div class="tag-container">
+                <a class="tag" href="#">@Model?.Value("asideTag1")</a>
+                <a class="tag" href="#">@Model?.Value("asideTag2")</a>
+                <a class="tag" href="#">@Model?.Value("asideTag3")</a>
+                <a class="tag" href="#">@Model?.Value("asideTag4")</a>
+                <a class="tag" href="#">@Model?.Value("asideTag5")</a>
+                <a class="tag" href="#">@Model?.Value("asideTag6")</a>
+                <a class="tag" href="#">@Model?.Value("asideTag7")</a>
+                <a class="tag" href="#">@Model?.Value("asideTag8")</a>
+            </div>
+
+            <div class="infobox">
+                <h4>@Model?.Value("asideContactTitle")</h4>
+                <p>@Model?.Value("asideContactText")</p>
+                <form action="">
+                    <label for="email"></label>
+                    <div class="input-container">
+                        <input type="E-mail-address"  placeholder="E-mail adress">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                </form>
+                <img class="mailsvg" src="@asideImage" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="pagination">
+    <div class="container">
+        <div class="pagination">
+            <ul>
+                <li><a href="#" class="prev">Prev</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#" class="next">Next</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section id="contact-info">
+    <div class="container">
+        <div class="parent">
+            <img class="child-1" src="@contactImage" alt="">
+            <img class="child-2" src="@backgroundImage" alt="">
+            <img class="child-3" src="@vectorImage" alt="">
+        </div>
+        <div class="content">
+            <h2>@Model?.Value("contactHeadline")</h2>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>@Model?.Value("contactInformation1Title")</p>
+                </div>
+                <p>@Model?.Value("contactInformation1Text")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>@Model?.Value("contactInformation2Title")</p>
+                </div>
+                <p>@Model?.Value("contactInformation2Text")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>@Model?.Value("contactInformation3Title")</p>
+                </div>
+                <p>@Model?.Value("contactInformation3Text")</p>
+            </div>
+        </div>
+    </div>
+</section>

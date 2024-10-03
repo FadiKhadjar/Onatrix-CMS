@@ -1,0 +1,207 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+    var articleOneImage = Model?.Value<IPublishedContent>("articleOneImage")?.Url() ?? "";
+    var articleThreeImage = Model?.Value<IPublishedContent>("articleThreeImage")?.Url() ?? "";
+    var articleFourImage = Model?.Value<IPublishedContent>("articleFourImage")?.Url() ?? "";
+
+
+   
+    var asideCardImage1 = Model?.Value<IPublishedContent>("asideCardOneImage")?.Url() ?? "";
+    var asideCardImage2 = Model?.Value<IPublishedContent>("asideCardTwoImage")?.Url() ?? "";
+    var asideCardImage3 = Model?.Value<IPublishedContent>("asideCardThreeImage")?.Url() ?? "";
+    var asideCardImage4 = Model?.Value<IPublishedContent>("asideCardFourImage")?.Url() ?? "";
+
+    var asideImage = Model?.Value<IPublishedContent>("asideContactBackgroundImage")?.Url() ?? "";
+
+    var contactImage = Model?.Value<IPublishedContent>("contactImage")?.Url() ?? "";
+    var vectorImage = Model?.Value<IPublishedContent>("contactVectorImage")?.Url() ?? "";
+    var backgroundImage = Model?.Value<IPublishedContent>("contactBackgroundImage")?.Url() ?? "";
+}
+
+
+<section id="page-title">
+    <div class="container">
+        <div class="content">
+            <h2>@Model?.Value("pageHeroTitle")</h2>
+            <ul class="breadcrumbs">
+                <li class="breadcrumb-link"><a href="@Model?.Value("pageHeroBreadcrumbURL1")">@Model?.Value("pageHeroBreadcrumbText1")</a></li>
+                <li class="fa-solid fa-chevron-right"></li>
+                <li class="breadcrumb-link"><a href="@Model?.Value("pageHeroBreadcrumbURL2")">@Model?.Value("pageHeroBreadcrumbText2")</a></li>
+                <li class="fa-solid fa-chevron-right"></li>
+                <li class="breadcrumb-link"><a href="#"></a>@Model?.Value("pageHeroBreadcrumbCurrentText")</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section class="annual-report">
+    <div class="container">
+
+        <div class="report-content">
+            <div class="calender">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>@Model?.Value("articleDate")</span>
+            </div>
+
+            <div class="content">
+                <h6>@Model?.Value("articleOneTitle")</h6>
+                <img src="@articleOneImage" alt="Group of people having meeting">
+            </div>
+
+            <div class="content">
+                <h5>@Model?.Value("articleTwoTitle")</h5>
+                <p class="bulleted">@Model?.Value("articleTwoBulletedTextOne")</p>
+                <p class="bulleted">@Model?.Value("articleTwoBulletedTextTwo")</p>
+                <p class="bulleted">@Model?.Value("articleTwoBulletedTextThree")</p>
+            </div>
+
+            <div class="flex content">
+                <img src="@articleThreeImage" alt="Girl looking at a laptom">
+                <div>
+                    <h5>@Model?.Value("articleThreeTitle")</h5>
+                    <p>@Model?.Value("articleThreeText")</p>
+                </div>
+            </div>
+
+            <div class="content">
+                <h5>@Model?.Value("articleFourTitle")</h5>
+                <p>@Model?.Value("articleFourText")</p>
+            </div>
+
+            <img src="@articleFourImage" alt="Two people looking at a laptop">
+
+            <div class="content">
+                <h5>@Model?.Value("articleFiveTitle")</h5>
+                <p>@Model?.Value("articleFiveText")</p>
+            </div>
+
+            <div class="tag-container">
+                <h6>@Model?.Value("tagsTitle")</h6>
+                <a class="tag" href="">@Model?.Value("tagOneTitle")</a>
+                <a class="tag" href="">@Model?.Value("tagTwoTitle")</a>
+                <a class="tag" href="">@Model?.Value("tagThreeTitle")</a>
+            </div>
+            
+        </div>
+
+
+        <div class="aside-content">
+
+            <div class="recent-projects">
+
+                <h4>@Model?.Value("asideCardTitle")</h4>
+
+                <div class="project">
+                    <img src="@asideCardImage1" alt="">
+                    <div>
+                        <h6>@Model?.Value("asideCardOneTitle")</h6>
+                        <div class="calender">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <span>@Model?.Value("asideCardOneDate")</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="@asideCardImage2" alt="">
+                    <div>
+                        <h6>@Model?.Value("asideCardTwoTitle")</h6>
+                        <div class="calender">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <span>@Model?.Value("asideCardTwoDate")</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="@asideCardImage3" alt="">
+                    <div>
+                        <h6>@Model?.Value("asideCardThreeTitle")</h6>
+                        <div class="calender">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <span>@Model?.Value("asideCardThreeDate")</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="@asideCardImage4" alt="">
+                    <div>
+                        <h6>@Model?.Value("asideCardFourTitle")</h6>
+                        <div class="calender">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <span>@Model?.Value("asideCardFourDate")</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tags">
+                    <h4>@Model?.Value("asideTitle")</h4>
+                    <div class="tag-container">
+                        <a class="tag" href="">@Model?.Value("asideTag1")</a>
+                        <a class="tag" href="">@Model?.Value("asideTag2")</a>
+                        <a class="tag" href="">@Model?.Value("asideTag3")</a>
+                        <a class="tag" href="">@Model?.Value("asideTag4")</a>
+                        <a class="tag" href="">@Model?.Value("asideTag5")</a>
+                        <a class="tag" href="">@Model?.Value("asideTag6")</a>
+                        <a class="tag" href="">@Model?.Value("asideTag7")</a>
+                        <a class="tag" href="">@Model?.Value("asideTag8")</a>
+                    </div>
+
+                    <div class="infobox">
+                        <h4>@Model?.Value("asideContactTitle")</h4>
+                        <p>@Model?.Value("asideContactText")</p>
+                        <form action="">
+                            <label for="email"></label>
+                            <div class="input-container">
+                                <input type="E-mail-address"  placeholder="E-mail adress">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                        </form>
+                        <img class="mailsvg" src="@asideImage" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="contact-info">
+    <div class="container">
+        <div class="parent">
+            <img class="child-1" src="@contactImage" alt="">
+            <img class="child-2" src="@backgroundImage" alt="">
+            <img class="child-3" src="@vectorImage" alt="">
+        </div>
+        <div class="content">
+            <h2>@Model?.Value("contactHeadline")</h2>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>@Model?.Value("contactInformation1Title")</p>
+                </div>
+                <p>@Model?.Value("contactInformation1Text")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>@Model?.Value("contactInformation2Title")</p>
+                </div>
+                <p>@Model?.Value("contactInformation2Text")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>@Model?.Value("contactInformation3Title")</p>
+                </div>
+                <p>@Model?.Value("contactInformation3Text")</p>
+            </div>
+        </div>
+    </div>
+</section>
